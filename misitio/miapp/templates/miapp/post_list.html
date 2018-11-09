@@ -1,0 +1,20 @@
+{% extends 'miapp/base.html' %}
+
+{% block content %}
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>Fecha de Publicación: {{ post.published_date }}</p>
+                            </div>
+                            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Marca }}</a></h1>
+                            <p>Modelo: {{ post.Modelo|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                               Año: {{ post.Año|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               Color: {{ post.Color|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               Nº Puertas: {{ post.Num_Puertas|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </p>
+                            <br>
+                            <p>{{ post.Descripción|linebreaksbr }}</p>
+                            <p>Precio: {{ post.Precio|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            
+                        </div>
+                    {% endfor %}
+{% endblock %}              

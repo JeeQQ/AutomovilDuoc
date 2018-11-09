@@ -1,0 +1,23 @@
+{% extends 'miapp/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ post.Marca }}</h1>
+        <p>Modelo: {{ post.Modelo|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Año: {{ post.Año|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Color: {{ post.Color|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Nº Puertas: {{ post.Num_Puertas|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <br>
+        <p>{{ post.Descripción|linebreaksbr }}</p>
+        <p>Precio: {{ post.Precio|linebreaksbr }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+{% endblock %}
